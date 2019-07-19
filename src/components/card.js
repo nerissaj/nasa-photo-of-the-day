@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-const WrapperImg = styled.img`
+
+const StyledImg = styled.img`
 max-width: 200px;
-height: 100%;
+height: 200px;
+border-radius:100%;
 border:3px solid orange;
 `;
 
@@ -11,9 +13,9 @@ function PhotoCard(props){
         <div>
         <h2>{props.title}
         </h2>
-        <WrapperImg>
-        <img src={props.url}/>
-        </WrapperImg>
+        <StyledImg src={props.url} alt="planet">
+        {/* /<img /> */}
+        </StyledImg>
         <p>{props.explanation}</p>
         </div>
 

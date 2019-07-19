@@ -1,38 +1,37 @@
-import React, {useEffect, useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 import PhotoCard from './components/card.js'
 import "./App.css";
 import styled from 'styled-components';
-import { Grid, Form, Input, TextArea, Button, Select } from "semantic-ui-react";
-
-const WrapperP = styled.p`
-font-size: 200px;
+const StyledP = styled.p`
+font-size: 50px;
 color:pink;
-border:3px solid orange;
-
-`;
+border:3px solid orange;`;
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
   useEffect(() => {
     axios
     .get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2019-07-15')
-    .then(response => {
-      setData(response.data);
+    .then(res => {
+      setData(res.data);
   });
 }, []);
 
-      return (
+return (
+  
+   
   <div className="App">
-  <WrapperP>
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
-      <WrapperP />
+    <StyledP>
+  <p>
+    Read through the instructions in the README.md file to build your NASA
+    app!Have fun<span role="img" >🚀</span>!</p>
+    </StyledP> 
+
       <PhotoCard title={data.title}
-      url={data.url}
+     url={data.url}
       explanation={data.explanation} />
-  </div>
+     
+</div>
       );
 }
 export default App;
